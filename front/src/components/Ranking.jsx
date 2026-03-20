@@ -83,6 +83,7 @@ export default function Ranking() {
                     <div className="rk-top">
                       <span className="rk-nome">{r.nome}</span>
                       {hasData && <span className="rk-valor-mobile mono">{valorStr}</span>}
+                      {hasData && <span className="rk-caret-mobile" aria-hidden>›</span>}
                     </div>
                     {hasData ? (
                       <div className="rk-bar-row">
@@ -96,11 +97,14 @@ export default function Ranking() {
                     )}
                   </div>
 
-                  {hasData && (
+                  {hasData ? (
                     <div className="rk-values">
                       <span className="rk-valor mono">{valorStr}</span>
                       <span className="rk-desp mono">{fmtBRL(r.total_despesas_real)} gastos</span>
+                      <span className="rk-caret" aria-hidden>›</span>
                     </div>
+                  ) : (
+                    <div />
                   )}
                 </button>
               )

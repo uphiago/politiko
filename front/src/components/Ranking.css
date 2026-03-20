@@ -142,6 +142,36 @@
   white-space: nowrap;
 }
 
+/* ── Caret "clicável" ────────────────────────────────────── */
+.rk-caret {
+  font-size: 14px;
+  color: var(--text-faint);
+  opacity: 0.4;
+  transition: opacity 0.14s, color 0.14s, transform 0.14s;
+  line-height: 1;
+  margin-top: 2px;
+}
+.ranking-row.clickable:hover .rk-caret {
+  opacity: 1;
+  color: var(--red);
+  transform: translateX(2px);
+}
+
+/* Aparece só no mobile */
+.rk-caret-mobile {
+  display: none;
+  font-size: 13px;
+  color: var(--text-faint);
+  opacity: 0.45;
+  flex-shrink: 0;
+  transition: opacity 0.14s, color 0.14s;
+}
+.ranking-row.clickable:hover .rk-caret-mobile,
+.ranking-row.clickable:active .rk-caret-mobile {
+  opacity: 1;
+  color: var(--red);
+}
+
 /* ── Tablet ──────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .ranking-row { grid-template-columns: 28px 76px 1fr 100px; gap: 12px; }
@@ -161,6 +191,9 @@
 
   /* Esconde coluna de values */
   .rk-values { display: none; }
+
+  /* Mostra caret mobile */
+  .rk-caret-mobile { display: block; }
 
   /* Mostra valor dentro do bloco central */
   .rk-valor-mobile {
