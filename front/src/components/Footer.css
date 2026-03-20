@@ -45,7 +45,19 @@
   font-size: 11px;
   color: var(--text-faint);
   letter-spacing: 0.08em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
+
+.footer-stats-link {
+  color: var(--text-faint);
+  text-decoration: none;
+  transition: color 0.14s;
+}
+.footer-stats-link:hover { color: var(--red); }
 
 @media (max-width: 760px) {
   .footer-cols { grid-template-columns: 1fr 1fr; }

@@ -29,6 +29,14 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <span className="mono">dados abertos · uso livre</span>
+          <a
+            className="mono footer-stats-link"
+            href="https://cloud.umami.is/share/mCM0K6eRHTKpu4qL"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            estatísticas do site →
+          </a>
         </div>
       </div>
     </footer>
