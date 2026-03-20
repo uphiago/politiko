@@ -21,7 +21,7 @@
 
 .header-sub {
   font-size: 11px;
-  color: var(--text-faint);
+  color: var(--text-muted);
   letter-spacing: 0.04em;
 }
 

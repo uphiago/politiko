@@ -9,10 +9,11 @@
   align-items: center;
   padding: 12px 14px;
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.025);
   transition: background 0.12s, border-color 0.12s;
 }
-.benef-row:hover { background: var(--surface); border-color: var(--border); }
+.benef-row:hover { background: var(--surface-2); border-color: var(--border-hover); }
 
 .benef-rank { font-size: 11px; color: var(--text-faint); text-align: right; }
 

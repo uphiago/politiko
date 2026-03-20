@@ -35,11 +35,12 @@
   gap: 20px;
   padding: 12px 14px;
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.025);
   transition: background 0.15s, border-color 0.15s;
   animation: gastos-in 0.35s cubic-bezier(.22,1,.36,1) both;
 }
-.gastos-row:hover { background: var(--surface); border-color: var(--border); }
+.gastos-row:hover { background: var(--surface-2); border-color: var(--border-hover); }
 
 @keyframes gastos-in {
   from { opacity: 0; transform: translateY(6px); }

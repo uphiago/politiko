@@ -90,7 +90,7 @@
   all: unset;
   cursor: pointer;
   font-size: 15px;
-  color: var(--text-faint);
+  color: var(--text-muted);
   padding: 7px 10px;
   border-radius: 6px;
   border: 1px solid transparent;
@@ -238,7 +238,7 @@
 
 .pm-table td {
   padding: 9px 10px 9px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid var(--border);
   vertical-align: top;
 }
 .pm-table td.r { text-align: right; white-space: nowrap; }

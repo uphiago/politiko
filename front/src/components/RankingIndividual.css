@@ -1,8 +1,8 @@
-.empresas-skeleton { display: flex; flex-direction: column; gap: 6px; }
+.rki-skeleton { display: flex; flex-direction: column; gap: 4px; }
 
-.empresas-list { display: flex; flex-direction: column; gap: 4px; }
+.rki-list { display: flex; flex-direction: column; gap: 4px; }
 
-.empresa-row {
+.rki-row {
   display: flex;
   align-items: flex-start;
   gap: 16px;
@@ -11,16 +11,17 @@
   border: 1px solid var(--border);
   background: rgba(255,255,255,0.025);
   transition: background 0.15s, border-color 0.15s;
-  animation: empresa-in 0.35s cubic-bezier(.22,1,.36,1) both;
+  animation: rki-in 0.35s cubic-bezier(.22,1,.36,1) both;
 }
-.empresa-row:hover { background: var(--surface-2); border-color: var(--border-hover); }
+.rki-row:hover { background: var(--surface-2); border-color: var(--border-hover); }
 
-@keyframes empresa-in {
+@keyframes rki-in {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: none; }
 }
 
-.empresa-rank {
+/* ── Rank ──────────────────────────────────────────────────── */
+.rki-rank {
   font-size: 11px;
   color: var(--text-faint);
   min-width: 28px;
@@ -29,29 +30,34 @@
   flex-shrink: 0;
 }
 
-.empresa-main {
+/* ── Main block ────────────────────────────────────────────── */
+.rki-main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   min-width: 0;
 }
 
-.empresa-head {
+.rki-head {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
-.empresa-nome {
+.rki-nome {
   font-size: 14px;
-  color: var(--text);
   font-weight: 500;
+  color: var(--text);
   min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
 }
 
-.empresa-partidos-badge {
+.rki-multi-badge {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -64,18 +70,13 @@
   flex-shrink: 0;
 }
 
-.empresa-cnpj {
-  font-size: 11px;
-  color: var(--text-faint);
-}
-
-.empresa-siglas {
+.rki-siglas {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
 }
 
-.empresa-sigla {
+.rki-sigla {
   font-size: 10px;
   color: var(--text-muted);
   border: 1px solid var(--border);
@@ -84,28 +85,33 @@
   letter-spacing: 0.04em;
 }
 
-.empresa-right {
+.rki-bar { width: 100%; }
+
+/* ── Right ─────────────────────────────────────────────────── */
+.rki-right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 3px;
   flex-shrink: 0;
+  min-width: 90px;
 }
 
-.empresa-valor {
+.rki-valor {
   font-size: 14px;
   font-weight: 600;
   color: var(--text);
   white-space: nowrap;
 }
 
-.empresa-regs {
+.rki-trans {
   font-size: 11px;
   color: var(--text-faint);
   white-space: nowrap;
 }
 
-.empresas-more {
+/* ── More button ───────────────────────────────────────────── */
+.rki-more {
   all: unset;
   cursor: pointer;
   font-size: 13px;
@@ -116,11 +122,12 @@
   transition: color 0.15s;
   display: block;
 }
-.empresas-more:hover { color: var(--red); }
+.rki-more:hover { color: var(--red); }
 
 @media (max-width: 600px) {
-  .empresa-row { gap: 10px; padding: 11px 8px; }
-  .empresa-nome { font-size: 13px; }
-  .empresa-valor { font-size: 12px; }
-  .empresa-cnpj { display: none; }
+  .rki-row { gap: 10px; padding: 11px 8px; }
+  .rki-nome { font-size: 13px; }
+  .rki-valor { font-size: 12px; }
+  .rki-right { min-width: 72px; }
+  .rki-trans { display: none; }
 }

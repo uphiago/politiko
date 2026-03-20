@@ -8,10 +8,11 @@
   gap: 20px;
   padding: 14px 16px;
   border-radius: 8px;
-  border: 1px solid transparent;
-  transition: border-color 0.15s;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.025);
+  transition: border-color 0.15s, background 0.15s;
 }
-.destino-row:hover { border-color: var(--border); background: var(--surface); }
+.destino-row:hover { border-color: var(--border-hover); background: var(--surface); }
 .destino-row.repasse { background: var(--red-dim); border-color: var(--red-mid); }
 .destino-row.repasse:hover { border-color: var(--red); }
 

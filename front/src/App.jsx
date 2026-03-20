@@ -2,10 +2,10 @@ import { useEffect } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Banner from './components/Banner'
+import RankingIndividual from './components/RankingIndividual'
 import Ranking from './components/Ranking'
 import Destino from './components/Destino'
 import Empresas from './components/Empresas'
-import GastosPorTipo from './components/GastosPorTipo'
 import Beneficiarios from './components/Beneficiarios'
 import Footer from './components/Footer'
 
@@ -26,10 +26,10 @@ export default function App() {
     <div className="app">
       <Header />
       <Banner />
+      <RankingIndividual />
       <Ranking />
       <Destino />
       <Empresas />
-      <GastosPorTipo />
       <Beneficiarios />
       <Footer />
     </div>
