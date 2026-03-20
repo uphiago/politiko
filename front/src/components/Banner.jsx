@@ -37,7 +37,7 @@ export default function Banner() {
           </div>
           <p className="banner-statement">
             do seu dinheiro nas eleições municipais de 2024 — declarado ao TSE pelos partidos brasileiros.
-            <br /><strong>Mais de 99% saiu direto do orçamento federal.</strong>
+            <br /><strong>Você pagou a conta. Veja como gastaram.</strong>
           </p>
         </div>
 
