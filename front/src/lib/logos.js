@@ -1,0 +1,43 @@
+const B  = 'https://www.curitiba.pr.leg.br/vereadores/imagens/logos-partidos'
+const GH = 'https://raw.githubusercontent.com/TheBlackwing21/Logos-Partidos/main'
+
+export const LOGOS = {
+  // Curitiba CMC
+  PL:            `${B}/logo-pl-2024/`,
+  MDB:           `${B}/mdblogopartido_100_72.png`,
+  REPUBLICANOS:  `${B}/Republicanosbrasil_150.png`,
+  PP:            `${B}/LogoPP_150.png`,
+  PODEMOS:       `${B}/partidopodemos_final_100.png`,
+  PODE:          `${B}/partidopodemos_final_100.png`,
+  PT:            `${B}/ptlogo_70_76.png`,
+  PDT:           `${B}/pdt-logo-1.png`,
+  PSB:           `${B}/logo_psb_70_40.png`,
+  PV:            `${B}/pv-logo-partido-verde-logo-150.png`,
+  PTB:           `${B}/logomarca-do-ptb_150.png`,
+  CIDADANIA:     `${B}/logo_do_cidadania_150_55.png`,
+  SOLIDARIEDADE: `${B}/Solidariedade_159.png`,
+  NOVO:          `${B}/LogopartidoNovo.png`,
+  'UNIÃO':       `${B}/LogoUnio.png`,
+  PSD:           `${B}/logopsd.png`,
+  PSC:           `${B}/psclogopartidosocialcristaologo.png`,
+  PSDB:          `${B}/PSDB_170_bom.png`,
+  PATRIOTA:      `${B}/Logopatriota51SemFundo.png`,
+  PMB:           `${B}/logo_pmb_150_39.png`,
+  PROS:          `${B}/proslogopartido_8065.png`,
+  PSL:           `${B}/partidopsllogo.png`,
+  PSOL:          `${B}/psol/`,
+  PRD:           `${B}/logo-prd/`,
+  AGIR:          `${B}/agir/`,
+  REDE:          `${B}/logo-rede-sustentabilidade/`,
+  DC:            `${B}/democracia-crista/`,
+  PRTB:          `${B}/logo-prtb/`,
+  // GitHub repo (TheBlackwing21/Logos-Partidos)
+  AVANTE:        `${GH}/70%2C%20Avante%20-%202017-.png`,
+  PCdoB:         `${GH}/65%2C%20Partido%20Comunista%20do%20Brasil%20%28PCdoB%29%20-%201962-.png`,
+  'PC do B':     `${GH}/65%2C%20Partido%20Comunista%20do%20Brasil%20%28PCdoB%29%20-%201962-.png`,
+  PCO:           `${GH}/29%2C%20Partido%20da%20Causa%20Oper%C3%A1ria%20%28PCO%29%20-%201995-.png`,
+  UP:            `${GH}/80%2C%20Unidade%20Popular%20%28UP%29%20-%202019-.png`,
+  MOBILIZA:      `${GH}/33%2C%20Mobiliza%C3%A7%C3%A3o%20Nacional%20%28MOBILIZA%29%20-%202023-.png`,
+  PSTU:          `${GH}/16%2C%20Partido%20Socialista%20dos%20Trabalhadores%20Unificado%20%28PSTU%29%20-%201994.png`,
+  PCB:           `${GH}/21%2C%20Partido%20Comunista%20Brasileiro%20%28PCB%29%20-%202021-.png`,
+}

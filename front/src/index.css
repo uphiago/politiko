@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'GeistPixel';
+  src: url('/fonts/GeistPixel-Square.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: 'GeistMono';
+  src: url('/fonts/GeistMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'GeistMono';
+  src: url('/fonts/GeistMono-Medium.woff2') format('woff2');
+  font-weight: 500 700;
+  font-display: block;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           #070707;
+  --surface:      #111;
+  --surface-2:    #181818;
+  --border:       rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.16);
+  --text:         #f0f0f0;
+  --text-muted:   rgba(255,255,255,0.45);
+  --text-faint:   rgba(255,255,255,0.22);
+  --red:          #e63946;
+  --red-dim:      rgba(230,57,70,0.12);
+  --red-mid:      rgba(230,57,70,0.35);
+  --green:        #2ecc71;
+  --amber:        #f4a261;
+  --blue:         #4895ef;
+}
+
+html, body, #root { height: 100%; width: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Geist', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+.pixel { font-family: 'GeistPixel', monospace; }
+.mono  { font-family: 'GeistMono', monospace; }
+
+/* ── Section system ───────────────────────────────────────── */
+section {
+  padding: 72px 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  /* Garante que section nunca fique presa invisível */
+  animation: section-fallback 1.5s 2s forwards;
+}
+section.visible { opacity: 1; transform: none; animation: none; }
+
+/* Fallback: se IntersectionObserver não disparar (SSR, offscreen etc), mostra após delay */
+@keyframes section-fallback {
+  to { opacity: 1; transform: none; }
+}
+
+.section-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 10px;
+  font-family: 'GeistMono', monospace;
+}
+
+.section-title {
+  font-family: 'GeistPixel', monospace;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.08;
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 580px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.section-rule {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+
+/* ── Bar component ────────────────────────────────────────── */
+.bar-track {
+  height: 6px;
+  background: var(--surface-2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--red);
+  transition: width 0.6s cubic-bezier(.22,1,.36,1);
+}
+.bar-fill.green { background: var(--green); }
+.bar-fill.amber { background: var(--amber); }
+.bar-fill.blue  { background: var(--blue); }
+
+/* ── Skeleton ─────────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, var(--surface) 25%, var(--surface-2) 50%, var(--surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 4px;
+}
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  section { padding: 56px 28px; }
+  .section-title { font-size: 34px; }
+}
+@media (max-width: 600px) {
+  section { padding: 44px 18px; }
+  .section-title { font-size: 28px; }
+  .section-desc { font-size: 15px; }
+}

@@ -1,0 +1,185 @@
+.ranking-skeleton { display: flex; flex-direction: column; gap: 4px; }
+.ranking-list     { display: flex; flex-direction: column; gap: 2px; }
+
+/* ── Row ─────────────────────────────────────────────────── */
+.ranking-row {
+  all: unset;
+  box-sizing: border-box;
+  width: 100%;
+  display: grid;
+  /* pos | logo (fixed) | center | values */
+  grid-template-columns: 32px 84px 1fr 124px;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background 0.16s, border-color 0.16s, transform 0.16s;
+  cursor: default;
+  transform: none;
+  animation: row-in 0.4s cubic-bezier(.22,1,.36,1) both;
+}
+
+@keyframes row-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.ranking-row.clickable       { cursor: pointer; }
+.ranking-row.clickable:hover {
+  background: var(--surface);
+  border-color: var(--border);
+  transform: translateX(3px);
+}
+.ranking-row.clickable:active { transform: scale(0.99); }
+.ranking-row.no-data          { opacity: 0.35; }
+
+/* ── Pos ─────────────────────────────────────────────────── */
+.rk-pos {
+  font-size: 11px;
+  color: var(--text-faint);
+  text-align: right;
+}
+
+/* ── Sigla / Logo ────────────────────────────────────────── */
+.rk-sigla {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: 0.03em;
+}
+
+.rk-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 4px;
+  padding: 3px 5px;
+}
+
+.rk-logo-wrap.rk-logo-sm {
+  height: 36px;
+  width: 84px;
+}
+
+.rk-logo-img {
+  display: block;
+  max-height: 30px;
+  max-width: 78px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── Center ──────────────────────────────────────────────── */
+.rk-center {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.rk-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+
+.rk-nome {
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 1;
+}
+
+/* Valor visível só no mobile */
+.rk-valor-mobile { display: none; }
+
+.rk-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rk-bar { flex: 1; min-width: 0; }
+
+.rk-pct {
+  font-size: 10px;
+  color: var(--text-faint);
+  white-space: nowrap;
+  min-width: 32px;
+  text-align: right;
+}
+
+.rk-sem {
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+/* ── Values (desktop/tablet) ─────────────────────────────── */
+.rk-values {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.rk-valor {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.rk-desp {
+  font-size: 11px;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+/* ── Tablet ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .ranking-row { grid-template-columns: 28px 76px 1fr 100px; gap: 12px; }
+  .rk-logo-wrap.rk-logo-sm { width: 76px; }
+  .rk-desp { display: none; }
+}
+
+/* ── Mobile: drop a coluna de values, mostrar valor no centro ── */
+@media (max-width: 640px) {
+  .ranking-row {
+    grid-template-columns: 22px 64px 1fr;
+    gap: 10px;
+    padding: 10px 8px;
+  }
+  .rk-logo-wrap.rk-logo-sm { width: 64px; height: 32px; }
+  .rk-logo-img { max-height: 26px; max-width: 58px; }
+
+  /* Esconde coluna de values */
+  .rk-values { display: none; }
+
+  /* Mostra valor dentro do bloco central */
+  .rk-valor-mobile {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .rk-sigla { font-size: 13px; }
+  .rk-nome  { font-size: 12px; }
+}
+
+@media (max-width: 380px) {
+  .ranking-row { grid-template-columns: 18px 56px 1fr; gap: 7px; padding: 9px 4px; }
+  .rk-logo-wrap.rk-logo-sm { width: 56px; height: 28px; }
+  .rk-logo-img { max-height: 22px; max-width: 50px; }
+  .rk-sigla { font-size: 11px; }
+  .rk-valor-mobile { font-size: 11px; }
+}
