@@ -3,8 +3,9 @@ import './App.css'
 import Header from './components/Header'
 import Banner from './components/Banner'
 import Ranking from './components/Ranking'
-import Origem from './components/Origem'
 import Destino from './components/Destino'
+import Empresas from './components/Empresas'
+import GastosPorTipo from './components/GastosPorTipo'
 import Beneficiarios from './components/Beneficiarios'
 import Footer from './components/Footer'
 
@@ -26,8 +27,9 @@ export default function App() {
       <Header />
       <Banner />
       <Ranking />
-      <Origem />
       <Destino />
+      <Empresas />
+      <GastosPorTipo />
       <Beneficiarios />
       <Footer />
     </div>
