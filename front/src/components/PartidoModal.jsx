@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { supabase } from '../lib/supabase'
-import { fmtBRL, fmtBRLFull, fmtNum } from '../lib/fmt'
+import { fmtBRL, fmtBRLFull } from '../lib/fmt'
 import { LOGOS } from '../lib/logos'
 import './PartidoModal.css'
 
@@ -47,7 +47,7 @@ export default function PartidoModal({ partido, onClose }) {
       document.removeEventListener('keydown', onKey)
       document.body.style.overflow = ''
     }
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!partido.id_prestador) return
@@ -158,7 +158,6 @@ function ReceitasTab({ rows }) {
   if (!rows) return <p className="pm-loading mono">carregando…</p>
   if (!rows.length) return <p className="pm-empty">Nenhuma receita itemizada.</p>
 
-  const total = rows.reduce((s, r) => s + Number(r.valor || 0), 0)
   const byTipo = {}
   for (const r of rows) {
     const k = r.tipo_receita || 'Outro'
