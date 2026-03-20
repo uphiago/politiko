@@ -216,10 +216,24 @@ Não requer autenticação, mas exige headers de browser (`User-Agent`, `Referer
 
 ---
 
+## Frontend
+
+Site em produção no Vercel com deploy automático via GitHub push.
+
+Seções: Hero stats → Ranking individual (candidatos) → Ranking partidos → Destino dos recursos → Fornecedores multi-partido → Maiores beneficiários
+
+Stack: React 19 + Vite · Supabase JS (queries diretas, sem API própria) · Geist fonts self-hosted
+
+Docs: [`docs/frontend.md`](docs/frontend.md) · [`docs/vercel.md`](docs/vercel.md) · [`docs/supabase.md`](docs/supabase.md)
+
+---
+
 ## Status
 
 - [x] Endpoints TSE descobertos (engenharia reversa do Angular bundle)
 - [x] Schema PostgreSQL criado no Supabase
 - [x] Crawl completo executado — 155.188 despesas, 1.303 receitas, 0 erros
-- [ ] Views SQL para o frontend
-- [ ] API / frontend
+- [x] Materialized views criadas (6 views, todas em `supabase/migrations/`)
+- [x] RLS + REVOKE configurados (anon: somente leitura em tabelas/views públicas)
+- [x] Frontend React construído e em produção no Vercel
+- [x] Vercel Analytics + Umami configurados
