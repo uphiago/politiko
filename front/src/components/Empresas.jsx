@@ -6,7 +6,7 @@ import './Empresas.css'
 export default function Empresas() {
   const [rows, setRows]       = useState([])
   const [loading, setLoading] = useState(true)
-  const [showAll, setShowAll] = useState(false)
+  const [visibleCount, setVisibleCount] = useState(10)
 
   useEffect(() => {
     supabase
@@ -20,7 +20,7 @@ export default function Empresas() {
       })
   }, [])
 
-  const visible = showAll ? rows : rows.slice(0, 15)
+  const visible = rows.slice(0, visibleCount)
 
   return (
     <section className="empresas-section">
@@ -73,9 +73,9 @@ export default function Empresas() {
               ))}
             </div>
 
-            {rows.length > 15 && (
-              <button className="empresas-more" onClick={() => setShowAll(v => !v)}>
-                {showAll ? '↑ mostrar menos' : `↓ ver mais ${rows.length - 15} fornecedores`}
+            {visibleCount < rows.length && (
+              <button className="empresas-more" onClick={() => setVisibleCount(c => c + 10)}>
+                ↓ mostrar mais 10 fornecedores
               </button>
             )}
           </>

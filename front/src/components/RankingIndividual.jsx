@@ -6,7 +6,7 @@ import './RankingIndividual.css'
 export default function RankingIndividual() {
   const [rows, setRows]       = useState([])
   const [loading, setLoading] = useState(true)
-  const [showAll, setShowAll] = useState(false)
+  const [visibleCount, setVisibleCount] = useState(10)
 
   useEffect(() => {
     supabase
@@ -20,7 +20,7 @@ export default function RankingIndividual() {
       })
   }, [])
 
-  const visible = showAll ? rows : rows.slice(0, 20)
+  const visible = rows.slice(0, visibleCount)
   const max = rows[0]?.total_recebido ? Number(rows[0].total_recebido) : 1
 
   return (
@@ -85,9 +85,9 @@ export default function RankingIndividual() {
               })}
             </div>
 
-            {rows.length > 20 && (
-              <button className="rki-more" onClick={() => setShowAll(v => !v)}>
-                {showAll ? '↑ mostrar menos' : `↓ ver mais ${rows.length - 20} candidatos`}
+            {visibleCount < rows.length && (
+              <button className="rki-more" onClick={() => setVisibleCount(c => c + 10)}>
+                ↓ mostrar mais 10 candidatos
               </button>
             )}
           </>

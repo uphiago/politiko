@@ -11,7 +11,7 @@ const REPASSE_TIPOS = [
 export default function Destino() {
   const [rows, setRows] = useState([])
   const [loading, setLoading] = useState(true)
-  const [showAll, setShowAll] = useState(false)
+  const [visibleCount, setVisibleCount] = useState(8)
 
   useEffect(() => {
     supabase
@@ -29,7 +29,7 @@ export default function Destino() {
     .reduce((s, r) => s + Number(r.total || 0), 0)
   const repasePct = total ? ((totalRepasse / total) * 100).toFixed(1).replace('.', ',') : '—'
 
-  const visible = showAll ? rows : rows.slice(0, 8)
+  const visible = rows.slice(0, visibleCount)
 
   return (
     <section className="destino-section">
@@ -80,9 +80,9 @@ export default function Destino() {
               })}
             </div>
 
-            {rows.length > 8 && (
-              <button className="destino-more" onClick={() => setShowAll(v => !v)}>
-                {showAll ? '↑ mostrar menos' : `↓ mostrar mais ${rows.length - 8} categorias`}
+            {visibleCount < rows.length && (
+              <button className="destino-more" onClick={() => setVisibleCount(c => c + 10)}>
+                ↓ mostrar mais 10 categorias
               </button>
             )}
           </>
